@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  numberValue: number[] = [];
+  numberValue: any[] = [];
   numberValue2: number[] = [];
-  numberValueArrLength: number;
+
 
   onNumberChange(number: number = 100) {
     let inputArray = [];
@@ -23,22 +23,22 @@ export class AppComponent {
       resultArray[chunkIndex].push(item)
       return resultArray
     }, []);
-    let arr = [];
-    for (let i = 0; i < this.numberValue.length; i++) {
-      arr.push(Object.assign({}, this.numberValue[i])); //array to object
-    }
-    this.numberValue2 = arr;
+    this.getColumnSum();
   }
   getSum(data) {
     return data.reduce((a, b) => a + b, 0);
   }
-  getColumnSum(index: number) {
-    if (index < 10) {
-      let sum = 0;
-      for (let j = 0; j < this.numberValue2.length; j++) {
-        sum += this.numberValue2[j][index];
+  getColumnSum() {
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+      let sum2 = 0;
+      for (let j = 0; j < this.numberValue.length; j++) {
+        if (this.numberValue[j][i]) {
+          sum2 += this.numberValue[j][i];
+        }
       }
-      return sum;
+      arr.push(sum2);
     }
+    this.numberValue2 = arr;
   }
 }

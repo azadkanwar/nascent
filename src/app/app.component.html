@@ -13,11 +13,11 @@
       <th>{{getSum(data)}}</th>
     </tr>
     <tr>
-      <ng-container *ngFor="let data of numberValue;let i = index">
-        <th *ngIf="i<10">
-          {{getColumnSum(i)}}
-        </th>
-      </ng-container>
+
+      <th *ngFor="let data of numberValue2;let i = index">
+        {{data}}
+      </th>
+
 
     </tr>
   </table>
