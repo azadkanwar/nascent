@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   numberValue: number[] = [];
-  numberValue2: any;
+  numberValue2: number[] = [];
   numberValueArrLength: number;
 
   onNumberChange(number: number = 100) {
@@ -25,14 +25,14 @@ export class AppComponent {
     }, []);
     let arr = [];
     for (let i = 0; i < this.numberValue.length; i++) {
-      arr.push(Object.assign({}, this.numberValue[i]));
+      arr.push(Object.assign({}, this.numberValue[i])); //array to object
     }
     this.numberValue2 = arr;
   }
   getSum(data) {
     return data.reduce((a, b) => a + b, 0);
   }
-  getColumnSum(index) {
+  getColumnSum(index: number) {
     if (index < 10) {
       let sum = 0;
       for (let j = 0; j < this.numberValue2.length; j++) {
