@@ -6,20 +6,28 @@
 </div>
 <div>
   <table>
-    <tr *ngFor="let data of  numberValue;let i = index ">
-      <td *ngFor='let item of data;let j= index'>
-        {{item}}
+    <tbody>
+      <tr>
+        <td *ngFor="let data of  numberValue ">
+          <table *ngFor='let item of data'>
+            <tr>
+              <td>{{item}}</td>
+            </tr>
+          </table>
+      <tr>
+        <th> {{getSum(data)}}</th>
+      </tr>
       </td>
-      <th>{{getSum(data)}}</th>
-    </tr>
-    <tr>
+      <td>
+        <table *ngFor="let data of numberValue2">
+          <tr>
+            <th>{{data}}</th>
+          </tr>
+        </table>
 
-      <th *ngFor="let data of numberValue2;let i = index">
-        {{data}}
-      </th>
-
-
-    </tr>
+      </td>
+      </tr>
+    </tbody>
   </table>
 
 </div>
